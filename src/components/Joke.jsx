@@ -1,9 +1,9 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
-function Joke({ name, artir, artmir, ses = 0 }) {
+function Joke({ name, artir, artmir, ses = 0, emoji = "🤣" }) {
   return (
     <>
-      <div className=" text-slate-500 m-2 flex justify-start border-solid border-b pb-2 px-2">
+      <div className=" text-slate-500 m-2 flex justify-between border-solid border-b pb-2 px-2">
         <div className="flex justify-center gap-2">
           <div
             className="my-auto text-xl rounded-lg cursor-pointer"
@@ -21,7 +21,10 @@ function Joke({ name, artir, artmir, ses = 0 }) {
             <FaArrowUp />
           </div>
         </div>
-        <p className="text-red-800 mx-2">{name}</p>
+        <p className="text-red-800 mx-2 my-auto">{name}</p>
+        <div className="my-auto">
+          <div className="">{emoji}</div>
+        </div>
       </div>
     </>
   );

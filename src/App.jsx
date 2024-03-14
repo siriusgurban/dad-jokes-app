@@ -20,7 +20,7 @@ function App() {
             <h3 className="text-2xl text-white">New Jokes</h3>
           </div>
         </div>
-        <div className="w-3/4 bg-white h-1/2 my-auto">
+        <div className="w-3/4 bg-slate-100 h-1/2 my-auto">
           <JokeList />
         </div>
       </div>

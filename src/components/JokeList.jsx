@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Joke from "./Joke";
+import { smiles } from "../constant/smile";
+import Loader from "../assets/icons/loader.gif";
 
 function JokeList() {
   const [data, setData] = useState([]);
@@ -44,16 +46,47 @@ function JokeList() {
     setData(newData);
   }
 
+  const handleEmoji = (i) => {
+    let emoji;
+
+    if (i < 3) {
+      emoji = smiles.smile1;
+    }
+
+    if (i < 6 && i >= 3) {
+      emoji = smiles.smile3;
+    }
+
+    if (i < 8 && i >= 6) {
+      emoji = smiles.smile2;
+    }
+
+    if (i == 8) {
+      emoji = smiles.smile4;
+    }
+
+    if (i == 9) {
+      emoji = smiles.smile5;
+    }
+    return emoji;
+  };
+
   return (
     <>
       <div className="overflow-y-auto">
-        {data == "" && <p className="text-3xl">Loading...</p>}
+        {data == "" && (
+          <div className="text-3xl flex justify-center">
+            <img src={Loader} alt="loader" />
+          </div>
+        )}
         {data?.map((item, index) => {
+          const emoji = handleEmoji(index);
           return (
             <div key={index}>
               <Joke
                 ses={item?.ses}
                 name={item?.name}
+                emoji={emoji}
                 artir={() => artir(index)}
                 artmir={() => artmir(index)}
               />
