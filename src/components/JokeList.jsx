@@ -46,7 +46,8 @@ function JokeList() {
 
   return (
     <>
-      <div>
+      <div className="overflow-y-auto">
+        {data == "" && <p className="text-3xl">Loading...</p>}
         {data?.map((item, index) => {
           return (
             <div key={index}>
